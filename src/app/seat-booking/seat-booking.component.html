@@ -1,0 +1,20 @@
+
+<div class="container mt-5 content-center border">
+    <div class="d-flex align-items-center justify-content-start my-5">
+        <label for="SelectSeat">Select
+        <select class="" name="SelectSeat" [(ngModel)]="numberOfSeats" id="">
+            <option value="null" selected disabled>Please select</option>
+            <option value="4">4 Seats</option>
+            <option value="3">3 Seats</option>
+            <option value="2">2 Seats</option>
+            <option value="1">1 Seat</option>
+        </select>
+    </label>
+        <button class="btn btn-primary mx-4" (click)="allocateSeats(numberOfSeats)" [disabled]="numberOfSeats == '' ">Allocate</button>
+        </div>
+        <div class="row border content-center" *ngFor="let row of seats">
+            <div class="col-1 mx-1 mx-sm-2 p-0 border" *ngFor="let seat of row">
+                <div class="p-0 p-sm-2 text-center"  [ngClass]="{'bookedSeat': bookedSeats.includes(seat) }" >{{seat}}</div>
+            </div>
+        </div>
+</div>
